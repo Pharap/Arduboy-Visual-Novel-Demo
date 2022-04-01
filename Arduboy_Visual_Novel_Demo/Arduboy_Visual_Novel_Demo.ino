@@ -148,7 +148,7 @@ void loop() {
 }
 
 void AdvancedPrint(String text){
-  for(int i = 0; i < text.length(); i++){
+  for(size_t i = 0; i < text.length(); i++){
     arduboy.print(text[i]);
 
     if(((i % 9) == 0) && (i != 0)){
