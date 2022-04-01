@@ -148,17 +148,15 @@ void loop() {
 }
 
 void AdvancedPrint(String text){
-  String prepText;
-  
   for(int i = 0; i < text.length(); i++){
-    prepText += text[i];
-    if(i % 9 == 0 && i != 0){
-      arduboy.println(prepText);
-      prepText = "";
+    arduboy.print(text[i]);
+
+    if(((i % 9) == 0) && (i != 0)){
+      arduboy.println();
     }
   }
 
-  arduboy.println(prepText);
+  arduboy.println();
 }
 
 void DrawEmotion(){
