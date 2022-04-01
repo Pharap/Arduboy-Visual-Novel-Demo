@@ -127,12 +127,12 @@ void loop() {
   
   currentEmotion = emotions[lineIndex];
   
-  if(dialogue[lineIndex] == "choice"){
+  if(lineIndex == choiceLine){
     currentGameplayState = choice;
     arduboy.println("(A) " + choices[choiceIndex]);
     arduboy.println("(B) " + choices[choiceIndex + 1]);
   }
-  else if(dialogue[lineIndex] == "end")
+  else if(lineIndex == endLine)
   {
     arduboy.exitToBootloader();
   }

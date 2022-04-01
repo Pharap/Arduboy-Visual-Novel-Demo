@@ -7,17 +7,39 @@
 
 String dialogue[]
 {
+	// 0
 	"Hi there!",
+
+	// 1
 	"This is a small Visual Novel demo!",
+
+	// 2
 	"Here, try this dialogue choice.",
+
+	// 3
 	"choice",
+
+	// 4
 	"Great! Thanks for participating!",
+
+	// 5
 	"Too bad, you answered anyway!",
+
+	// 6
 	"Hopefully it will become a full game one day...",
+
+	// 7
 	"But for now this is all you'll get!",
+
+	// 8
 	"Farewell!",
+
+	// 9
 	"end"
 };
+
+constexpr uint8_t choiceLine = 3;
+constexpr uint8_t endLine = 9;
 
 String choices[]
 {
