@@ -130,9 +130,9 @@ void loop() {
   if(lineIndex == choiceLine){
     currentGameplayState = choice;
     arduboy.print(F("(A) "));
-    arduboy.println(choices[choiceIndex + 0]);
+    arduboy.println(getChoiceForPrinting(choiceIndex + 0));
     arduboy.print(F("(B) "));
-    arduboy.println(choices[choiceIndex + 1]);
+    arduboy.println(getChoiceForPrinting(choiceIndex + 1));
   }
   else if(lineIndex == endLine)
   {

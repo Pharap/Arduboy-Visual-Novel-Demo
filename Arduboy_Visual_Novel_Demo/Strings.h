@@ -1,10 +1,10 @@
 #pragma once
 
-// For String
-#include <Arduino.h>
-
 // For PROGMEM
 #include <avr/pgmspace.h>
+
+// For asFlashString
+#include "FlashStringHelper.h"
 
 //String dialogue[] = {"Hi there!", "This super speed dating sure is an interesting concept!", "So...", "I've got this list of questions here", "that I'm supposed to ask.", "It says here to answer them truthfully.", "Then we'll see if we're compatible!", "Are you ready to get started?", "choice", "Hooray! Let's get started!", "That's too bad but we have to start now.", "Question 1:", "If you suddenly won the lottery, what would you spend the money on?", "choice", "That's kinda weird since we just met...", "It's always good to look after yourself!", "Next up is Question 2:"};
 
@@ -46,8 +46,19 @@ inline const char * getDialogueLine(size_t lineIndex)
 constexpr uint8_t choiceLine = 3;
 constexpr uint8_t endLine = 9;
 
-String choices[]
+// As before, individual lines are stored into fixed size arrays in progmem.
+constexpr char choice0[] PROGMEM = "Sure!";
+constexpr char choice1[] PROGMEM = "No!";
+
+// And then pointed to from an array.
+constexpr const char * choices[] PROGMEM
 {
-	"Sure!",
-	"No!"
+	choice0,
+	choice1
 };
+
+// This function fetches the lines of dialogue by index
+inline FlashStringHelper getChoiceForPrinting(size_t choiceIndex)
+{
+	return readFlashStringPointer(&choices[choiceIndex]);
+}
