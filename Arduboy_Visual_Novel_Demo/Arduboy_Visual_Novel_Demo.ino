@@ -147,7 +147,7 @@ void loop() {
   arduboy.display();
 }
 
-void AdvancedPrint(String text){
+void AdvancedPrint(const String & text){
   for(size_t i = 0; i < text.length(); i++){
     arduboy.print(text[i]);
 
