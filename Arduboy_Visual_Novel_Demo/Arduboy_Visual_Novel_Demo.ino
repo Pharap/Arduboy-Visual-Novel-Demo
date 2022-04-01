@@ -71,7 +71,7 @@ void loop() {
   
   if (!(arduboy.nextFrame()))
     return;
-  arduboy.audio.enabled();
+
   beep.timer();
   arduboy.pollButtons();
   arduboy.clear();
