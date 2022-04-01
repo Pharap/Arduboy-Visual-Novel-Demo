@@ -139,7 +139,7 @@ void loop() {
     arduboy.exitToBootloader();
   }
   else {
-    AdvancedPrint(dialogue[lineIndex]);
+    AdvancedPrint(getDialogueLine(lineIndex));
   }
   
   DrawEmotion();
@@ -147,9 +147,16 @@ void loop() {
   arduboy.display();
 }
 
-void AdvancedPrint(const String & text){
-  for(size_t i = 0; i < text.length(); i++){
-    arduboy.print(text[i]);
+void AdvancedPrint(const char * text){
+  // Precalculate the length of the string
+  size_t length = strlen_P(text);
+
+  for(size_t i = 0; i < length; i++){
+    // Read the character from progmem
+    char character = pgm_read_byte(&text[i]);
+
+    // And then print
+    arduboy.print(character);
 
     if(((i % 9) == 0) && (i != 0)){
       arduboy.println();
